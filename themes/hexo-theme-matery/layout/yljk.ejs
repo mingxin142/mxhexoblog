@@ -1,0 +1,59 @@
+<%- partial('_partial/bg-cover') %>
+<style>
+    .about-cover {
+        height: 100vh;
+    }
+    .bg-cover {
+        background-image: url("/medias/banner/night.jpg")!important;
+    }
+    .bg-cover::before {
+        background-image: url(/medias/banner/grid.png);
+    }
+    .musis > div {
+        margin-bottom: 60px;
+    }
+    .aplayer {
+        border-radius: 8px!important;
+    }
+    .comment-scroll {
+        bottom: 93px;
+    }
+    .v[data-class=v] .vcards {
+        display: none;
+    }
+    .musis div p {
+        font-family: 'Architects Daughter', cursive;
+        font-size: 18px;
+    }
+    
+    .musictitle {
+        font-family: 'Architects Daughter', cursive;
+        font-size: 20px;
+        margin-bottom: 0px!important;
+    }
+    body.dark .musictitle {
+        color: rgba(255, 255, 255, 0.6);
+    }
+    .musiclink {
+        margin-bottom: 0px!important;
+    }
+    .musiclink a {
+        margin-bottom: 15px;
+        display: inline-block;
+        color: rgba(0,0,0,0.87);
+    }
+    /* 修改小屏幕下logo文字样式. */
+    @media only screen and (max-width: 600px) {
+        .about-cover {
+            height: 64vh;
+        }   
+    }
+</style>
+
+<main class="content">
+    <div class="container">
+        <div class="card musis">
+<iframe width="100%" height="990" src="/status/" frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="yes" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"></iframe>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,123 @@
+<style>
+    .youpaiyunlogo {
+        height: 26px;
+        display: inline-block;
+        vertical-align: top;
+    }
+    .page-footer {
+        background-color: #000;
+    }
+</style>
+<footer class="page-footer">
+    <div class="container row center-align" style="margin-bottom: <% if (theme.time.enable) { %>15<% } else { %>0<% } %>px !important;">
+        <!-- 访客地图 -->
+        <div class="col s12 m3 l3 social-link" id="visitmap">
+            <a href="https://clustrmaps.com/site/1bf5x" class="tooltipped" data-position="top" data-delay="50" data-tooltip="访客地图"><img src="http://clustrmaps.com/map_v2.png?d=cPCKl3BmH2jPlk6RoxDm1p745-hlsRzv5VwzSdCgh-Y&co=000000&cl=ffffff" /></a>
+        </div>
+        
+        <!-- 版权信息 -->
+        <div class="col s12 m6 l6 copy-right">
+            <% if (theme.icp.enable) { %>
+            <span id="icp"><img src="<%- theme.jsDelivr.url %><%- url_for('/medias/gxb.png') %>" style="vertical-align: text-bottom;" />
+                <a href="<%- url_for(theme.icp.url) %>" target="_blank"><%= theme.icp.text %></a>
+            </span>
+            <% } %>
+            <br>
+            <% if (theme.icp.enable) { %>
+            <span id="icp"><img src="<%- theme.jsDelivr.url %>/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a target="_blank" href="http://www.beian.gov.cn/" >公网安备xxxxxx号</a>
+            </span>
+            <% } %>
+            <br>
+            <% if (theme.time.enable) { %>
+            <span id="sitetime">running time</span>
+            <script>
+                function siteTime() {
+                    let seconds = 1000;
+                    let minutes = seconds * 60;
+                    let hours = minutes * 60;
+                    let days = hours * 24;
+                    let years = days * 365;
+                    let today = new Date();
+                    let startYear = "<%- theme.time.year %>";
+                    let startMonth = "<%- theme.time.month %>";
+                    let startDate = "<%- theme.time.date %>";
+                    let startHour = "<%- theme.time.hour %>";
+                    let startMinute = "<%- theme.time.minute %>";
+                    let startSecond = "<%- theme.time.second %>";
+                    let todayYear = today.getFullYear();
+                    let todayMonth = today.getMonth() + 1;
+                    let todayDate = today.getDate();
+                    let todayHour = today.getHours();
+                    let todayMinute = today.getMinutes();
+                    let todaySecond = today.getSeconds();
+                    let t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    let t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    let diff = t2 - t1;
+                    let diffYears = Math.floor(diff / years);
+                    let diffDays = Math.floor((diff / days) - diffYears * 365);
+                    let diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    let diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    let diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "The site has been running for " + "<span class= 'white-color'>"+diffDays+"</span>" + " d " + "<span class= 'white-color'>"+diffHours+"</span>" +
+                            " h " + "<span class= 'white-color'>"+diffMinutes+"</span>" + " m " + "<span class= 'white-color'>"+diffSeconds+"</span>" + " s";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "The site has been running for " + "<span class= 'white-color'>"+diffYears+"</span>" + " y " + "<span class= 'white-color'>"+diffDays+"</span>" +
+                            " d " + "<span class= 'white-color'>"+diffHours+"</span>" + " h " + "<span class= 'white-color'>"+diffMinutes+"</span>" + " m " +"<span class= 'white-color'>"+ diffSeconds+"</span>" + " s";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            <% } %>
+            <br>
+
+            Copyright&nbsp;&copy;
+            <span id="year"><%- theme.time.year %></span>
+            <a href="<%- url_for('/about') %>" target="_blank"><%- config.author %></a>
+            &nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            &nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            <% if (theme.postInfo.totalCount) { %>
+            &nbsp;<i class="far"></i>&nbsp;Total number of words: &nbsp;<span
+                class="white-color"><%= totalcount(site) %></span>&nbsp;
+            <% } %>
+            <% let socialClass = '' %>
+            <% if (theme.busuanziStatistics && theme.busuanziStatistics.enable) { %>
+            <% socialClass = 'social-statis' %>
+            <% } %>
+            <% if (theme.busuanziStatistics && theme.busuanziStatistics.totalTraffic) { %>
+            <span id="busuanzi_container_site_pv">
+                &nbsp;<i class="far"></i>&nbsp;Total visits: &nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;
+            </span>
+            <% } %>
+            <% if (theme.busuanziStatistics && theme.busuanziStatistics.totalNumberOfvisitors) { %>
+            <span id="busuanzi_container_site_uv">
+                &nbsp;<i class="far"></i>&nbsp;Total visits: &nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;
+            </span>
+            <% } %>
+            <br>
+            
+            <a>Cloud storage</a> service and <a>CDN</a> acceleration provider
+            <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"  class="tooltipped"
+               target="_blank" data-position="top" data-delay="50"
+               data-tooltip="本站CDN加速/云存储由又拍云提供">
+                <img src="/medias/youpaiyun-logo.png" class="youpaiyunlogo"/>
+            </a>
+            <a href="https://www.jsdelivr.com/" class="tooltipped" target="_blank" data-position="top" data-delay="50" data-tooltip="部分CDN加速由jsdelivr提供">
+                <img src="https://cdn.jsdelivr.net/www.jsdelivr.com/b12b739cba83c021b7611978b6c944758e6c2aef/img/logo-horizontal.svg" class="youpaiyunlogo" />
+            </a>
+        </div>
+        <div class="col s12 m3 l3 social-link <%- socialClass %>"><%- partial('_partial/social-link') %></div>
+    </div>
+
+</footer>
+<!-- 底部进度条 -->
+<div class="progress-bar" style="z-index: 999"></div>

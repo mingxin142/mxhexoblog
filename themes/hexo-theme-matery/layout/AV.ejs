@@ -1,0 +1,122 @@
+<%- partial('_partial/bg-cover') %>
+<style>
+    .about-cover {
+        height: 100vh;
+    }
+
+    .bg-cover {
+        background-image: url("/medias/banner/AV.jpg") !important;
+    }
+
+    .bg-cover::before {
+        background-image: url(/medias/banner/grid.png);
+    }
+
+    .musis > div {
+        margin-bottom: 60px;
+    }
+
+    .aplayer {
+        border-radius: 8px !important;
+    }
+
+    .comment-scroll {
+        bottom: 93px;
+    }
+
+    .v[data-class=v] .vcards {
+        display: none;
+    }
+
+    .musis div p {
+        font-family: 'Architects Daughter', cursive;
+        font-size: 18px;
+    }
+
+    .musictitle {
+        font-family: 'Architects Daughter', cursive;
+        font-size: 20px;
+        margin-bottom: 0px !important;
+    }
+
+    body.dark .musictitle {
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    .musiclink {
+        margin-bottom: 0px !important;
+    }
+
+    .musiclink a {
+        margin-bottom: 15px;
+        display: inline-block;
+        color: rgba(0, 0, 0, 0.87);
+    }
+
+    /* 修改小屏幕下logo文字样式. */
+    @media only screen and (max-width: 600px) {
+        .about-cover {
+            height: 64vh;
+        }
+    }
+</style>
+
+<main class="content">
+    <div class="container">
+        <div class="card video">
+            <link rel="stylesheet" href="/libs/dplayer/DPlayer.min.css">
+            <div class="video-player">
+
+                <div class="title center-align">
+                    <i class="fa fa-video-camera"></i>&nbsp;&nbsp;盛世中华
+                </div>
+
+                <div class="row">
+
+                    <div class="col l8 offset-l2 m10 offset-m1 s12">
+                        <div id="dplayer" class="dplayer-video"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <script>
+                getScript("/libs/dplayer/DPlayer.min.js", function () {
+                    new DPlayer({
+                        container: document.getElementById('dplayer'),
+                        autoplay: 'false' === 'true',
+                        theme: '#42b983',
+                        loop: 'false' === 'true',
+                        lang: 'zh-CN' === 'zh-CN' ? 'zh-cn' : 'en',
+                        preload: 'auto',
+                        airplay: 'true',
+                        screenshot: 'false' === 'true',
+                        mutex: 'true',
+                        volume: Number('1'),
+                        video: {
+                            url: 'https://file.nmsl.pet/api/v3/file/source/1172/%E4%B8%AD%E5%9B%BD%E5%A4%A7%E5%A5%BD%E6%B2%B3%E5%B1%B1.mp4?sign=3Yw1KLK2vdFWjHrci2SWqPf0GiS47d0F-8lQHODtb_4%3D%3A0',
+                            pic: 'https://pic.downk.cc/item/5fe80b133ffa7d37b3a9ee41.png',
+                            thumbnails: ''
+                        }
+                    });
+
+                })
+            </script>
+            <hr>
+            <div class="card-music">
+                <div class="title center-align">
+                    <i class="fa fa-video-camera"></i>&nbsp;&nbsp;听听音乐
+                </div>
+                <iframe width="100%" height="600px" src="https://musics.mx42.club/"  frameborder="no" border="1"  scrolling="no" marginwidth="0" marginheight="0" ></iframe>
+
+            </div>
+
+</main>
+
+<script type="text/javascript">
+    //只在桌面版网页启用特效
+    var windowWidth = $(window).width();
+    if (windowWidth > 768) {
+        document.write('<scripts type="text/javascript" src="/js/Petal.js"><\/scripts>');
+    }
+</script>

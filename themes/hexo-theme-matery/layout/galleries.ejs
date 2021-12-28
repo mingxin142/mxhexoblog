@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="/css/gallery.css">
+
+<%- partial('_partial/bg-cover') %>
+<style>
+    .about-cover {
+        height: 100vh;
+    }
+    .bg-cover {
+        background-image: url("/medias/banner/xc.jpg")!important;
+    }
+    .bg-cover::before {
+        background-image: url(/medias/banner/grid.png);
+    }
+</style>
+
+<main class="content">
+    <div class="container">
+        <% if (site.data && site.data.galleries) { %>
+        <% var galleries = site.data.galleries; %>
+        <div class="gallery-wrapper row">
+            <% for (var i = 0, len = galleries.length; i < len; i++) { %>
+            <% var gallery = galleries[i]; %>
+            <div class="col s6 m4 l4 xl3 gallery-box">
+                <a href="./<%- gallery.name %>" class="gallery-item" data-aos="zoom-in-up">
+                     <div class="gallery-cover-box" style="background-image: url(https://xm142.gitee.io/<%- gallery.cover%>);">
+                    </div>
+                    <p class="gallery-name">
+                        <%- gallery.name %>
+                    </p>
+                </a>
+            </div>
+            <% } %>
+        </div>
+        <% } %>
+    </div>
+<script type="text/javascript">
+        //ֻ���������ҳ������Ч
+        var windowWidth = $(window).width();
+        if (windowWidth > 768) {
+            document.write('<scripts type="text/javascript" src="/js/sakura.js"><\/scripts>');
+        }
+</script>
+</main>

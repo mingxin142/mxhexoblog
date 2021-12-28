@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="baidu-site-verification" content="0oHMCHg68u" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name=”applicable-device” content=”pc,mobile”>
+<meta name="keywords" content="m3u8在线播放器-Mx">
+<meta name="description" content="m3u8在播放测试网为广大网友提供m3u8在线播放">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/video-js.min.css">
+<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://mx142.cn/css/dhgdt.css">
+<link rel="shortcut icon" href="img/favicon.ico">
+<title>m3u8在线播放器-Mx</title>
+
+  <script data-ad-client="ca-pub-3603876314100310" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?83abef6d53491b835ed6000d42708d3c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+	<nav
+		class="navbar navbar-expand-lg navbar-dark shadow-sm rounded nice-nav">
+		<div class="container">
+			<a class="navbar-brand logo" href="/"><img
+				src="img/logo5.png" alt="M3U8播放器" class="mr-2">M3U8播放器</a>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			
+				</ul>
+
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="row">
+			<div class="col-12 py-3">
+				<video id="player" class="video-js vjs-16-9 vjs-big-play-centered"
+					controls preload="auto" data-setup="{}">
+					<source src="http://cn-videos.dji.net/video_trans/c899aa23f0d449a39d36c41cbe0bd014/1080.mp4"
+						type="application/x-mpegURL">
+					<p class="vjs-no-js">
+						To view this video please enable JavaScript, and consider
+						upgrading to a web browser that <a
+							href="https://videojs.com/html5-video-support/" target="_blank">supports
+							HTML5 video</a>
+					</p>
+				</video>
+				<div class="input-group my-3">
+					<input id="video-url" required name="play" type="text"
+						class="form-control nice" placeholder="输入 M3U8 URL 地址"
+						value="http://cn-videos.dji.net/video_trans/c899aa23f0d449a39d36c41cbe0bd014/1080.mp4"
+						aria-describedby="button-addon2">
+					<div class="input-group-append">
+						<button class="btn btn-dark px-5 js-play border-0" type="button">
+							<img src="img/play.png" height="24">
+						</button>
+					</div>
+				</div>
+				<div class="my-3">
+					<div class="d-none history">
+						<div class="text-center">
+							<a href="javascript:;" class="p-3 h-close nice-c"><span
+								class="oi oi-chevron-top"></span></a>
+						</div>
+						<ul class="list-unstyled nice-c my-2 h-list">
+						</ul>
+						<a href="javascript:;" class="clear-history">清空播放记录</a>
+					</div>
+					<div class="text-center">
+						<a href="javascript:;" class="p-3 h-open nice-c"><span
+							class="oi oi-chevron-bottom"></span></span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row nice-c">
+			<div class="col">
+				<h5>M3U8文件格式</h5>
+				<p>
+					<strong>M3U8</strong>文件是指UTF-8编码格式的M3U文件。M3U文件是记录了一个索引纯文本文件，打开它时播放软件并不是播放它，而是根据它的索引找到对应的音视频文件的网络地址进行在线播放。
+				</p>
+				<p>
+					<strong>M3U8</strong>是一种播放多媒体列表的文件格式，它的设计初衷是为了播放音频文件，比如MP3，但是越来越多的软件现在用来播放视频文件列表，M3U也可以指定在线流媒体音频源。很多播放器和软件都支持M3U文件格式。
+				</p>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<div class="col-12">
+				<div class="row mr-0"></div>
+			</div>
+		</div>
+	</div>
+	<script src="js/jquery.slim.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/video.min.js"></script>
+	<script src="js/videojs-http-streaming.min.js"></script>
+	<script src="js/bundle.min.js"></script>
+	<script>
+		//隐藏右键
+		// document.oncontextmenu = function (event){
+		//     if(window.event){
+		//     event = window.event;
+		//     }try{
+		//     var the = event.srcElement;
+		//     if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")){
+		//     return false;
+		//     }
+		//     return true;
+		//     }catch (e){
+		//     return false;
+		//     }
+		// }
+	
+		// debugger部分
+			 setInterval(function() {
+			 check();
+			 }, 500);
+			 var check = function() {
+				 function doCheck(a) {
+				 if (('' + a / a)['length'] !== 1 || a % 20 === 0) {
+					 (function() {}['constructor']('debugger')());
+				 } else {
+					 (function() {}['constructor']('debugger')());
+				 }
+				 doCheck(++a);
+				 }
+				 try {
+				 doCheck(0);
+				} catch (err) {}
+			 };
+			 check();
+	
+			// ctrl+s保存
+			document.onkeydown = function() {
+				if ((e.ctrlKey) && (e.keyCode == 83)) { //ctrl+s
+					return false;
+				}
+			}
+			window.addEventListener("keydown", function(e) {
+				//可以判断是不是mac，如果是mac,ctrl变为花键
+				//event.preventDefault() 方法阻止元素发生默认的行为。
+				if((e.key=='s'||e.key=='S')&&(navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)){
+					e.preventDefault();
+				}
+			}, false);
+			// F12
+			document.onkeydown = function(){
+				if(window.event && window.event.keyCode == 123) {
+					event.keyCode=0;
+					event.returnValue=false;
+				}
+				if(window.event && window.event.keyCode == 13) {
+					window.event.keyCode = 505;
+				}
+				if(window.event && window.event.keyCode == 8) {
+					window.event.returnValue=false;
+				}
+			}
+		//宽高
+		 var threshold = 160; // 打开控制台的宽或高阈值  
+		// // 每秒检查一次  
+		 window.setInterval(function() {  
+			 if (window.outerWidth - window.innerWidth > threshold ||   
+			 window.outerHeight - window.innerHeight > threshold) {  
+				 // 如果打开控制台，则刷新页面  
+				 window.location.reload();  
+			 }  
+		 }, 1e3);
+	
+		//debug调试时跳转页面
+		 var element = new Image();
+		 Object.defineProperty(element,'id',{get:function(){window.location.href="https://pic.downk.cc/item/5fe1a6073ffa7d37b349bf90.jpg"}});
+		 console.log(element);
+	</script>
+	
+
+</body>
+</html>

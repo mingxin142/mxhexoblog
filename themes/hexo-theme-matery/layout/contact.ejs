@@ -1,0 +1,262 @@
+<%- partial('_partial/bg-cover') %>
+<style>
+    .bg-cover {
+        background-image: url("/medias/banner/ly.jpg") !important;
+        height: 63vh;
+    }
+
+    .bg-cover .container {
+        margin-top: 77px;
+    }
+
+    @media screen and (min-width: 762px) and (max-width: 1200px) {
+        .list:nth-last-of-type(1) {
+            margin-bottom: 10%;
+        }
+    }
+
+    @media only screen and (max-width: 760px) {
+        .list_nr {
+            max-height: auto !important;
+            width: 75% !important;
+        }
+
+        .list {
+            margin-bottom: 50%;
+        }
+
+        .list:nth-last-of-type(1) {
+            margin-bottom: 12%;
+        }
+    }
+
+    @media only screen and (max-width: 368px) {
+        .list {
+            margin-bottom: 60%;
+        }
+    }
+
+    @media only screen and (max-width: 900px) {
+        .miaoshus {
+            text-align: left;
+        }
+    }
+
+    @media only screen and (max-width: 292px) {
+        .list_nr {
+            max-height: auto !important;
+            width: 60% !important;
+        }
+
+        .list {
+            margin-bottom: 92%;
+        }
+
+        .list:nth-last-of-type(1) {
+            margin-bottom: 28%;
+        }
+    }
+
+    .card-content {
+        padding: 12px !important;
+        padding-bottom: 30px !important;
+    }
+
+    #switchchristmas {
+        bottom: 291px !important;
+    }
+
+    @media only screen and (max-width: 601px) {
+        #switchchristmas {
+            bottom: 235px !important;
+        }
+    }
+
+    .miaoshus {
+        padding: 12px;
+        border: 1px dashed #e6e6e6;
+        color: #969696;
+        position: relative;
+        display: inline-block;
+        width: 95%;
+        background: #fbfbfb50;
+        border-radius: 10px;
+        font-size: 16px;
+        margin: 12px auto;
+    }
+
+    body.dark .miaoshus {
+        background: 0 0;
+        border: 1px dashed #888;
+    }
+
+    .wrap p {
+        font-family: 'Architects Daughter', cursive !important;
+        font-size: 18px !important;
+        margin: 15px auto !important;
+    }
+
+    .im0now {
+        color: #e96900;
+        font-size: 20px !important;
+    }
+
+    .HotDate {
+        color: #e96900;
+        font-size: 26px;
+        font-weight: 400;
+        text-align: center;
+        margin: 10px auto;
+    }
+
+    .biaotis {
+        margin: 10px auto;
+        text-align: center;
+    }
+
+    .biaotis span {
+        font-family: 'Architects Daughter', cursive;
+        font-size: 19px;
+        margin: 15px auto;
+        padding-bottom: 6px;
+    }
+
+    body.dark .biaotis span {
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+</style>
+<style>
+    /* 增加每日一言模块 */
+    .poem-wrap {
+        position: relative;
+        width: 730px;
+        max-width: 80%;
+        border: 2px solid #797979;
+        border-top: 0;
+        text-align: center;
+        margin: 30px auto 2px;
+    }
+
+    .poem-left {
+        left: 0;
+    }
+
+    .poem-border {
+        position: absolute;
+        height: 2px;
+        width: 27%;
+        background-color: #797979;
+    }
+
+    .poem-right {
+        right: 0;
+    }
+
+    .poem-wrap h1 {
+        position: relative;
+        margin-top: -20px;
+        display: inline-block;
+        letter-spacing: 4px;
+        color: #797979;
+    }
+
+    .poem-wrap p:nth-of-type(1) {
+        font-size: 25px;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .poem-wrap p {
+        width: 70%;
+        margin: auto;
+        line-height: 30px;
+        color: #797979;
+        font-family: "Linux Biolinum", "Noto Serif SC", Helvetica, Arial, Menlo, Monaco, monospace, sans-serif;
+    }
+
+    .poem-wrap p:nth-of-type(2) {
+        font-size: 18px;
+        margin: 15px auto;
+    }
+</style>
+
+<main class="content">
+    <div id="contact" class="container chip-container">
+        <div class="card">
+            <div class="card-content">
+                <div class="tag-title center-align">
+                    <i class="fas fa-comments"></i>&nbsp;&nbsp;<%= __('contact') %>
+                    <div class="card-content">
+                        <!-- 加入网易云音乐热门评论，实时更新 -->
+                        <div class="poem-wrap">
+                            <div class="poem-border poem-left">
+                            </div>
+                            <div class="poem-border poem-right">
+                            </div>
+                            <h1>热评</h1>
+                            <p id="poem">loading...</p>
+                            <p id="info">loading...</p>
+                        </div>
+                        <script>
+                            $.get("https://v1.hitokoto.cn?c=d&c=h&c=j", function (data, status) {
+                                if (status == 'success') {
+                                    $('#poem').html(data.hitokoto);
+                                    if (data.from_who != null) {
+                                        $('#info').html(data.from_who + " · " + "《 " + data.from + " 》");
+                                    } else {
+                                        $('#info').html(" “ " + data.from + " ” ");
+                                    }
+                                } else {
+                                    $('#poem').html("获取出错啦");
+                                }
+                            });
+                        </script>
+                        <!-- 加入网易云音乐热门评论，实时更新 -->
+                    </div>
+                </div>
+                <%- page.content %>
+            </div>
+            <div class="music-player">
+                <div class="row">
+                    <div class="col s12 ">
+                        <meting-js style="margin-top: 1.5rem;width: auto;height: auto;"
+                                   server="netease"
+                                   type="song"
+                                   id="29803287"
+                                   order="list"
+                                   theme="#ad7a86"
+                                   loop="all"
+                                   autoplay="true"
+                                   storageName="aplayer-setting"
+                                   hideLrc="false"
+                        >
+                        </meting-js>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <% if (theme.gitalk && theme.gitalk.enable) { %>
+                <%- partial('_partial/gitalk') %>
+            <% } %>
+
+            <% if (theme.gitment.enable) { %>
+                <%- partial('_partial/gitment') %>
+            <% } %>
+
+            <% if (theme.disqus.enable) { %>
+                <%- partial('_partial/disqus') %>
+            <% } %>
+
+            <% if (theme.livere && theme.livere.enable) { %>
+                <%- partial('_partial/livere') %>
+            <% } %>
+
+            <% if (theme.valine && theme.valine.enable) { %>
+                <%- partial('_partial/valine') %>
+            <% } %>
+        </div>
+    </div>
+</main>

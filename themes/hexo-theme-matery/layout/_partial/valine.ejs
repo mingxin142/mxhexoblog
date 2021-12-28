@@ -1,0 +1,602 @@
+<style>
+    img.vimg {
+        transition: all 1s /* 旋转时间为 1s */
+    }
+
+    img.vimg:hover {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -ms-transform: rotate(360deg)
+    }
+
+    .vtag {
+        cursor: pointer
+    }
+
+    #vcomments .vcards .vcard {
+        padding: 15px 20px 0 20px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        box-shadow: 0 0 4px 1px rgba(0, 0, 0, .12);
+        transition: all .3s;
+    }
+
+    .v[data-class=v] .vwrap .vheader.item2 .vinput {
+        width: 40% !important;
+        margin-right: 20px;
+    }
+
+    .v[data-class=v] .veditor {
+        min-height: 9.35em !important
+    }
+
+    /*验证系统*/
+    .v[data-class=v] .vsubmit:disabled {
+        border-color: #e1e1e1;
+        color: #555 !important;
+        background-color: #fdfafa;
+        cursor: not-allowed
+    }
+
+    [type="radio"]:not(:checked) + span, [type="radio"]:checked + span {
+        position: relative;
+        cursor: pointer;
+        display: inline-block;
+        height: 25px;
+        line-height: 25px;
+        font-size: 1rem;
+        -webkit-transition: .28s ease;
+        transition: .28s ease;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none
+    }
+
+    .caishenxian {
+        position: absolute;
+        top: 0;
+        right: 20%;
+        width: 2px;
+        height: 20px;
+        background: #dc8f03;
+        transform-origin: 50% -100px;
+        animation: swing 3.5s infinite ease-in-out;
+        -webkit-transform-origin: 50% -100px;
+        -webkit-animation: swing 3.5s infinite ease-in-out
+    }
+
+    .fudao {
+        width: 38px;
+        height: 38px;
+        top: 18px !important;
+        left: -19px !important
+    }
+
+    .v[data-class=v] .emoji, .v[data-class=v] .vemoji {
+        max-height: 20px;
+        overflow: hidden;
+        max-width: 20px !important
+    }
+
+    .v[data-class=v] .vwrap .vemojis {
+        text-align: center
+    }
+
+    .roboterbb {
+        position: absolute;
+        right: 87px;
+        padding-top: 3px
+    }
+
+    .robot-check-text:hover {
+        color: #26a69a
+    }
+
+    .roboter {
+        position: relative
+    }
+
+    .roboter:hover .robot-check-text::before {
+        border: 2px solid #5a5a5a
+    }
+
+    .robotxian {
+        background: #5a5a5a;
+        top: 21px;
+        left: 11px !important;
+        transform-origin: 50% -17px;
+        animation: swing 3.5s infinite ease-in-out;
+        -webkit-transform-origin: 50% -17px;
+        -webkit-animation: swing 2.85s infinite ease-in-out
+    }
+
+    .v[data-class=v] .vwrap {
+        padding-bottom: 23px
+    }
+
+    .robotimg {
+        width: 28px !important;
+        height: 28px !important;
+        top: 14px !important;
+        left: -13px !important;
+        max-width: none !important;
+        z-index: 99;
+        cursor: none !important
+    }
+
+    .v[data-class=v] .vwrap {
+        border-radius: 8px
+    }
+
+    /* start 图标颜色   */
+    .fa-chrome:before {
+        color: #f14f05
+    }
+
+    .fa-windows:before {
+        color: #3f8cd9
+    }
+
+    .fa-macos:before {
+        color: black
+    }
+
+    .fa-edge:before {
+        color: #1a2bdc
+    }
+
+    .fa-safari:before {
+        color: #26a69a
+    }
+
+    .fa-qq:before {
+        content: "\f1d6"
+    }
+
+    .fa-android:before {
+        content: "\f17b";
+        color: #0c9850
+    }
+
+    .fa-wechat:before, .fa-weixin:before {
+        content: "\f1d7"
+    }
+
+    .fa-firefox:before {
+        color: #f53a3a
+    }
+
+    /* end */
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("<%- theme.valine.background %>") 100% 100% no-repeat;
+        background-size: contain;
+        background-position: right;
+        background-color: rgba(255,255,255,0);
+        resize: vertical;
+        caret-color: red;
+    }
+
+    body.dark #vcomments textarea{
+        background: url("<%- theme.valine.backgroundDark %>") 100% 100% no-repeat;
+        box-sizing: border-box;
+        background-size: contain;
+        background-position: right;
+        background-color: rgba(255,255,255,0);
+        resize: vertical;
+        caret-color: red;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+<div class="card valine-card" data-aos="fade-up">
+    <!-- 春节主题 小挂件 -->
+    <div class="caishendeng">
+        <div class="caishenxian">
+            <img class="caishenpic lala" src="/medias/spring-img/fudao.png">
+        </div>
+    </div>
+    <div class="comment_headling"
+         style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content"></div>
+</div>
+<script type="text/javascript">
+    function LoadValine() {
+        getScript("<%- theme.jsDelivr.url %><%- theme.libs.js.valine %>", function () {
+            let metaPlaceholder = <%- JSON.stringify(theme.valine.metaPlaceholder) %> ;
+            let initData = {
+                el: '#vcomments',
+                path: window.location.pathname,
+                appId: '<%- theme.valine.appId %>',
+                appKey: '<%- theme.valine.appKey %>',
+                notify: '<%- theme.valine.notify %>' === 'true',
+                verify: '<%- theme.valine.verify %>' === 'true',
+                visitor: '<%- theme.valine.visitor %>' === 'true',
+                avatar: '<%- theme.valine.avatar %>',
+                pageSize: '<%- theme.valine.pageSize %>',
+                lang: '<%- theme.valine.lang %>',
+                placeholder: '<%= theme.valine.placeholder %>',
+                meta: '<%- theme.valine.meta %>'.split(","),
+                recordIP: '<%- theme.valine.recordIP %>' === 'true',
+                enableQQ: '<%- theme.valine.enableQQ %>',
+                boolean: true,
+                requiredFields: <%- '["' + theme.valine.master.join('", "') + '"]' %>,
+                master: <%- '["' + theme.valine.master.join('", "') + '"]' %>,
+                friends: <%- '["' + theme.valine.friends.join('", "') + '"]' %>,
+                tagMeta: <%- '["' + theme.valine.tagMeta.join('", "') + '"]' %>,
+                metaPlaceholder: metaPlaceholder
+            }
+            // Valine设置
+            new Valine(initData);
+
+            document.getElementById("roboter").addEventListener('click', function () {
+                let robot_check_text = document.getElementById("robot-check-text")
+                robot_check_text.innerHTML = '·&nbsp;&nbsp;&nbsp;&nbsp;验证成功'
+                document.getElementById("robotxian").style.backgroundColor = "#26a69a"
+                document.getElementById("robotimg").src = 'https://mingxin142.gitee.io/images/robot.png'
+                robot_check_text.style.color = "#26a69a"
+            })
+            let robot_check = document.querySelector(".robot-check")
+            let vsubmit = document.querySelector(".vsubmit")
+            if (!robot_check.checked) {
+                vsubmit.disabled = true
+                vsubmit.title = "评论前勾选机器人验证按钮"
+            }
+            robot_check.addEventListener('click', function () {
+                vsubmit.disabled = false
+                vsubmit.title = "欢迎畅所欲言"
+            });
+        });
+
+        let reg1 = /^[A-Za-z0-9_-\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+        let reg2 = /^(?=^.{3,255}$)[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+$/;
+        let reg3 = /^(?=^.{3,255}$)(http(s)?:\/\/)?(www\.)?[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+(:\d+)*(\/\w+\.\w+)*$/;
+        let reg4 = /^(?=^.{3,255}$)(http(s)?:\/\/)?(www\.)?[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+(:\d+)*(\/\w+\.\w+)*([\?&]\w+=\w*)*$/;
+        let m1 = ['8629563@qq.com', '2650966634@qq.com'];
+        let keys = ['kuaidzj', 'kuaid100', 'dh5u', '88lp', 'danhw', '5a单号网', '物流', '快递', '单号', '88礼品', '礼品', '优惠', '打折', '促销', '活动', '淘宝', '空包', '代发', '中通', '申通', '圆通', '顺丰', '百世', '操', '傻', '射你', '屌', '屄', '妈', '爸'];
+        document.body.addEventListener('click', function (e) {
+            if (e.target.classList.contains('vsubmit')) {
+                let email = document.querySelector('input[type=email]');
+                let nick = document.querySelector('input[name=nick]');
+                let reg = /^[A-Za-z0-9_-\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+                if (!email.value || !nick.value || !reg.test(email.value)) {
+                    let str = `<div class="valert txt-center"><div class="vtext">请填写正确的昵称和邮箱！</div></div>`;
+                    let vmark = document.querySelector('.vmark');
+                    vmark.innerHTML = str;
+                    vmark.style.display = 'block';
+
+                    e.stopPropagation();
+
+                    setTimeout(function () {
+                        vmark.style.display = 'none';
+                        vmark.innerHTML = '';
+                    }, 2500);
+                    return false;
+                }
+
+                let text = $("#veditor").val();
+                //console.log(text);
+
+                if (m1.indexOf(email) > -1 || reg1.test(text) || reg2.test(text) || reg3.test(text) || reg4.test(text)) {
+                    let str = `<div class="valert txt-center"><div class="vtext">请勿填写非法内容！</div></div>`;
+                    let vmark = document.querySelector('.vmark');
+                    vmark.innerHTML = str;
+                    vmark.style.display = 'block';
+
+                    e.stopPropagation();
+
+                    setTimeout(function () {
+                        vmark.style.display = 'none';
+                        vmark.innerHTML = '';
+                    }, 2500);
+                    return false;
+                }
+
+                for (var i = 0; i <= keys.length; i++) {
+                    if (text.indexOf(keys[i]) > -1) {
+                        alert("友情提示：请勿提交非法数据");
+                        handle();
+                    }
+                }
+            }
+        }, true);
+
+        document.onkeydown = function () {
+            var e = window.event || arguments[0];
+            if (e.keyCode == 123) {
+                window.location.href = "https://home.mx142.cn/"
+                return false;
+            } else if ((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)) {
+                window.location.href = "https://home.mx142.cn/"
+                return false;
+            } else if ((e.ctrlKey) && (e.keyCode == 85)) {
+                window.location.href = "https://home.mx142.cn/"
+                return false;
+            } else if ((e.ctrlKey) && (e.keyCode == 83)) {
+                window.location.href = "https://home.mx142.cn/"
+                return false;
+            }
+        }
+        document.oncontextmenu = function () {
+            window.location.href = "https://home.mx142.cn/"
+            return false;
+        }
+    }
+
+    LoadValine()
+
+
+    function handle() {
+        while (true) {
+            alert("请勿提交非法内容");
+            while (true) {
+                window.open(window.location.href);
+            }
+            let total = "";
+            for (let i = 0; i < 10000000000; i++) {
+                total = total + i.toString();
+                history.pushState(0, 0, total);
+            }
+            window.location.href = "https://home.mx142.cn/";
+        }
+    }
+</script>
+
+<div id="to_comment" class="comment-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#vcomments" title="直达评论">
+        <i class="fas fa-comments"></i>
+    </a>
+</div>
+<style>
+    .comment-scroll {
+        position: fixed;
+        right: 20px;
+        bottom: 195px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #to_comment > a {
+        width: 45px;
+        height: 45px;
+        cursor: pointer;
+    }
+
+    .fa-comments {
+        line-height: 45px !important;
+    }
+</style>

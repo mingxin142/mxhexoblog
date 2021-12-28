@@ -1,0 +1,189 @@
+<style>
+    .right {
+        float: right !important;
+    }
+
+    .bg-cover::before {
+        background-image: url(/medias/banner/grid.png);
+    }
+</style>
+<div id="header">
+    <% if (is_home() && page.current === 1) { %>
+        <%- partial('_partial/index-cover') %>
+    <% } else { %>
+        <%- partial('_partial/bg-cover') %>
+    <% } %>
+</div>
+
+<main class="content">
+
+    <% if (page.current === 1
+            && ((theme.dream.enable || theme.music.enable)
+                    || theme.video.enable || theme.recommend.enable)) { %>
+        <div id="indexCard" class="index-card">
+            <div class="container ">
+                <div class="card">
+                    <!-- 春节主题 小挂件 -->
+                    <div class="caishendeng">
+                        <div class="caishenxian">
+                            <img class="caishenpic lala" src="https://nekodeng.gitee.io/medias/spring-img/caishen.png">
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <% if (theme.dream.enable) { %>
+                            <%- partial('_widget/dream') %>
+                        <% } %>
+
+                        <% if (theme.music.enable && !theme.music.fixed) { %>
+                            <%- partial('_widget/music') %>
+                        <% } %>
+
+                        <% if (theme.video.enable) { %>
+                            <%- partial('_widget/video') %>
+                        <% } %>
+
+                        <% if (theme.recommend.enable) { %>
+                            <div id="recommend-sections" class="recommend">
+                                <%- partial('_widget/recommend') %>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } %>
+
+    <%
+    var hashCode = function (str) {
+        if (!str && str.length === 0) {
+            return 0;
+        }
+
+        var hash = 0;
+        for (var i = 0, len = str.length; i < len; i++) {
+            hash = ((hash << 5) - hash) + str.charCodeAt(i);
+            hash |= 0;
+        }
+        return hash;
+    };
+    %>
+
+    <!-- 添加首页banner视频背景开始 -->
+    <!-- 若要恢复banner图片则注释这一段html和css即可 -->
+    <!--<style>
+        #index-video { z-index: -1; position: absolute; top: 0; left: 0; height: 100vh; width: 100%; object-fit: cover;}
+        @media only screen and (max-width: 760px) { #index-video { display: none;}}
+        @media only screen and (min-width: 760px) { .bg-cover { background-image: none!important;}}
+      </style>
+      <video id="index-video" autoplay loop muted>
+        <source src="https://www.mx142.ltd/static/img/ND.mp4">
+      </video>  -->
+    <!-- 添加首页banner视频背景结束 -->
+
+    <!-- 所有文章卡片 -->
+    <article id="articles" class="container articles">
+        <div class="row article-row">
+            <% page.posts.forEach(post => { %>
+                <div class="article col s12 m6 l4" data-aos="zoom-in">
+                    <div class="card">
+                        <a href="<%- url_for(post.path) %>">
+                            <div class="card-image">
+                                <% if (post.img) { %>
+                                    <img src="<%= post.img %>" class="responsive-img" alt="<%- post.title %>">
+                                <% } else { %>
+                                    <%
+                                        var featureimg = '/medias/featureimages/0.jpg';
+                                        var featureImages = theme.featureImages;
+                                        if (!featureImages || featureImages.length == 0) {
+                                            return featureimg;
+                                        }
+                                        var len = featureImages.length;
+                                        var num = Math.abs(hashCode(post.title) % len);
+                                        var num = Math.abs(hashCode(post.title) % len);
+                                        if (theme.jsDelivr.url !== '') {
+                                            featureimg = featureImages[num];
+                                        } else if (config.root == '' || config.root == '/') {
+                                            featureimg = config.root + featureImages[num];
+                                        }
+                                    %>
+                                    <img src="<%- theme.jsDelivr.url %><%- featureimg %>" class="responsive-img"
+                                         alt="<%- post.title %>">
+                                <% } %>
+                                <!-- 春节主题 小挂件 -->
+                                <div class="caishendeng">
+                                    <div class="caishenxian">
+                                        <img class="caishenpic lala"
+                                             src="https://nekodeng.gitee.io/medias/spring-img/fudao.png">
+                                    </div>
+                                </div>
+
+                                <span class="card-title"><%- post.title %></span>
+                            </div>
+                        </a>
+
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                <% if (post.summary && post.summary.length > 0) { %>
+                                    <%- post.summary %>
+                                <% } else { %>
+                                    <%- strip_html(post.content).substring(0, 120) %>
+                                <% } %>
+                            </div>
+                            <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i><%= date(post.date, config.date_format) %>
+                            </span>
+                                <span class="publish-author">
+                                    <% if (post.categories && post.categories.length > 0) { %>
+                                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                        <% post.categories.forEach(category => { %>
+                                            <a href="<%- url_for(category.path) %>" class="post-category">
+                                    <%- category.name %>
+                                </a>
+                                        <% }); %>
+                                    <% } else if (post.author && post.author.length > 0) { %>
+                                        <i class="fas fa-user fa-fw"></i>
+                                        <%- post.author %>
+                                    <% } else { %>
+                                        <i class="fas fa-user fa-fw"></i>
+                                        <%- config.author %>
+                                    <% } %>
+                                </span>
+                            </div>
+                        </div>
+
+                        <% if(post.tags && post.tags.length > 0) { %>
+                            <div class="card-action article-tags">
+                                <% post.tags.forEach(tag => { %>
+                                    <a href="<%- url_for(tag.path) %>">
+                                        <span class="chip bg-color"><%= tag.name %></span>
+                                    </a>
+                                <% }); %>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </article>
+
+</main>
+
+<% if (page.total > 1) { %>
+    <%- partial('_partial/paging') %>
+<% } %>
+<script>
+    setTimeout(function () {
+        if ((new Date().getHours() >= 19 || new Date().getHours() < 7) && !$('body').hasClass('DarkMode')) {
+            let toastHTML = '<span style="color:#97b8b2;border-radius: 10px;>' + '<i class="fa fa-bell" aria-hidden="true"></i>晚上使用深色模式阅读更好哦。(ﾟ▽ﾟ)/</span>'
+            M.toast({html: toastHTML})
+        }
+    }, 2200)
+
+    setTimeout(function () {
+        $('.fa-macos').addClass('fa-apple').removeClass('fa-macos')
+        $('.vcount').before('<hr data-aos="fade-right">')
+        $('.cat-container').remove()
+    }, 1800)
+</script>

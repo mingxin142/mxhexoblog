@@ -1,0 +1,758 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>电视直播频道列表</title>
+    <script src="skel.min.js"></script>
+    <script>
+        skel.init();
+    </script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "hm.js";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <script>
+        //debug调试时跳转页面
+        var element = new Image();
+        Object.defineProperty(element, 'id', { get: function () { window.location.href = "https://pic.downk.cc/item/5fe1a6073ffa7d37b349bf90.jpg" } });
+        console.log(element);
+    </script>
+    <script>
+        // ctrl+s保存
+        document.onkeydown = function () {
+            if ((e.ctrlKey) && (e.keyCode == 83)) { //ctrl+s
+                return false;
+            }
+        }
+        window.addEventListener("keydown", function (e) {
+            //可以判断是不是mac，如果是mac,ctrl变为花键
+            //event.preventDefault() 方法阻止元素发生默认的行为。
+            if ((e.key == 's' || e.key == 'S') && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+                e.preventDefault();
+            }
+        }, false);
+    </script>
+    <script>
+        //右键隐藏
+        document.oncontextmenu = function (event) {
+            if (window.event) {
+                event = window.event;
+            } try {
+                var the = event.srcElement;
+                if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")) {
+                    return false;
+                }
+                return true;
+            } catch (e) {
+                return false;
+            }
+        }
+    </script>
+</head>
+
+              <style>
+                    body{
+                  font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","WenQuanYi Micro Hei",sans-serif;
+                  width: 100%;
+                  height: 100%;
+                  margin: auto;
+                  background-repeat: repeat-x;
+                  background-image: -webkit-linear-gradient(45deg, #ADCAC8, #082274);
+                  background-image: -moz-linear-gradient(45deg, #ADCAC8, #082274);
+                  background-image: linear-gradient(45deg, #ADCAC8, #082274);
+                  background-attachment: fixed;
+                }
+                .container{
+                  margin-top:100px;
+                }
+                .well {
+                  min-height: 20px;
+                  padding: 19px;
+                  padding-bottom:40px;
+                  margin-bottom: 20px;
+                  background-color: #f5f5f5;
+                  border: 1px solid #e3e3e3;
+                  -webkit-border-radius: 4px;
+                  -moz-border-radius: 4px;
+                  border-radius: 4px;
+                  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+                  -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+                  box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+                }
+                a{
+                  text-decoration:none;
+                  color:blue;
+                }
+              </style>
+
+              <body>
+                <div class="container well">
+
+                  <div class="row">
+                    <div class="8u -2u">
+                      <h1 style="text-align:center">
+                                    电视直播频道列表
+                      </h1>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>CCTV-1高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv1hd" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv1hd.m3u8" target="_blank">移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>CCTV-2高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv2hd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv2hd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>CCTV-3高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv3hd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv3hd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>CCTV-4高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv4hd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv4hd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>CCTV-5+高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv5phd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv5phd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>CCTV-6高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv6hd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv6hd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>CCTV-7高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv7hd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv7hd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>CCTV-8高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv8hd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv8hd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>CCTV-9高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv9hd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv9hd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>CCTV-10高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv10hd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv10hd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>CCTV-12高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv12hd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv12hd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>CCTV-13高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv13hd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv13hd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>CCTV-14高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv14hd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv14hd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>CCTV-17高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv17hd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv17hd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>CGTN高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cgtnhd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cgtnhd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>CGTN DOC高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cgtndochd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cgtndochd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>CHC高清电影</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=chchd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/chchd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>北京卫视高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=btv1hd" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/btv1hd.m3u8" target="_blank">移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>北京文艺高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=btv2hd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/btv2hd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>北京影视高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=btv4hd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/btv4hd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>北京新闻高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=btv9hd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/btv9hd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>北京卡酷少儿高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=btv9hd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/btv9hd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>北京冬奥纪实高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=btv11hd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/btv11hd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>湖南卫视高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=hunanhd" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/hunanhd.m3u8" target="_blank">移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>江苏卫视高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=jshd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/jshd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>东方卫视高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=dfhd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/dfhd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>安徽卫视高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=ahhd" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/ahhd.m3u8" target="_blank">移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>黑龙江卫视高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=hljhd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/hljhd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>辽宁卫视高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=lnhd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/lnhd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>深圳卫视高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=szhd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/szhd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>广东卫视高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=gdhd" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/gdhd.m3u8" target="_blank">移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>天津卫视高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=tjhd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/tjhd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>湖北卫视高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=hbhd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/hbhd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>山东卫视高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=sdhd" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/sdhd.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>重庆卫视高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cqhd" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cqhd.m3u8" target="_blank">移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>上海纪实高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=docuchina" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/docuchina.m3u8" target="_blank">移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>金鹰纪实高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=gedocu" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/gedocu.m3u8" target="_blank">移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>福建东南卫视高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=dnhd" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/dnhd.m3u8" target="_blank">移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>四川卫视高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=schd" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/schd.m3u8" target="_blank">移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>河北卫视高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=hebhd" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/hebhd.m3u8" target="_blank">移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>江西卫视高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=jxhd" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/jxhd.m3u8" target="_blank">移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>河南卫视高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=hnhd" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/hnhd.m3u8" target="_blank">移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>广西卫视高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=gxhd" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/gxhd.m3u8" target="_blank">移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>吉林卫视高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=jlhd" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/jlhd.m3u8" target="_blank">移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>CETV-1高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cetv1hd" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cetv1hd.m3u8" target="_blank">移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>海南卫视高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=lyhd" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/lyhd.m3u8" target="_blank">移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>贵州卫视高清</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=gzhd" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/gzhd.m3u8" target="_blank">移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>CCTV-1综合</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv1" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv1.m3u8" target="_blank">移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>CCTV-2财经</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv2" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="/hls/cctv2.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>CCTV-3综艺</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv3" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv3.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>CCTV-4中文国际</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv4" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv4.m3u8" target="_blank" >移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>CCTV-6电影</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv6" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv6.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>CCTV-7国防军事</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv7" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv7.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>CCTV-8电视剧</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv8" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv8.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>CCTV-9纪录</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv9" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv9.m3u8" target="_blank">移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>CCTV-10科教</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv10" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv10.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>CCTV-11戏曲</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv11" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv11.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>CCTV-12社会与法</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv12" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv12.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>CCTV-13新闻</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv13" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv13.m3u8" target="_blank">移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>CCTV-14少儿</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv14" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv14.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>CCTV-15音乐</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv15" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv15.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>CGTN</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv16" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv16.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>CCTV-17农业农村</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cctv17" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cctv17.m3u8" target="_blank" >移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>北京卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=btv1" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/btv1.m3u8" target="_blank">移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>北京文艺</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=btv2" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/btv2.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>北京科教</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=btv3" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/btv3.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>北京影视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=btv4" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/btv4.m3u8" target="_blank" >移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>北京财经</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=btv5" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/btv5.m3u8" target="_blank">移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>北京生活</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=btv7" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/btv7.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>北京青年</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=btv8" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/btv8.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>北京新闻</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=btv9" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/btv9.m3u8" target="_blank">移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>北京卡酷少儿</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=btv10" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/btv10.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>北京冬奥纪实</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=btv11" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/btv11.m3u8" target="_blank" >移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>湖南卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=hunantv" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/hunantv.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>江苏卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=jstv" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/jstv.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>东方卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=dftv" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/dftv.m3u8" target="_blank">移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>深圳卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=sztv" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/sztv.m3u8" target="_blank">移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>安徽卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=ahtv" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/ahtv.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>河南卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=hntv" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/hntv.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>陕西卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=sxtv" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/sxtv.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>吉林卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=jltv" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/jltv.m3u8" target="_blank">移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>广东卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=gdtv" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/gdtv.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>山东卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=sdtv" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/sdtv.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>湖北卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=hbtv" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/hbtv.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>广西卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=gxtv" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/gxtv.m3u8" target="_blank">移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>河北卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=hebtv" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/hebtv.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>西藏卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=xztv" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/xztv.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>内蒙古卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=nmtv" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/nmtv.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>青海卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=qhtv" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/qhtv.m3u8" target="_blank">移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>四川卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=sctv" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/sctv.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>天津卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=tjtv" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/tjtv.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>山西卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=sxrtv" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/sxrtv.m3u8" target="_blank">移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>辽宁卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=lntv" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/lntv.m3u8" target="_blank" >移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>厦门卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=xmtv" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/xmtv.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>新疆卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=xjtv" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/xjtv.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>黑龙江卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=hljtv" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/hljtv.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>云南卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=yntv" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/yntv.m3u8" target="_blank" >移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>江西卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=jxtv" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/jxtv.m3u8" target="_blank">移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>福建东南卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=dntv" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/dntv.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>贵州卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=gztv" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/gztv.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>宁夏卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=nxtv" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/nxtv.m3u8" target="_blank">移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>甘肃卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=gstv" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/gstv.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>重庆卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cqtv" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cqtv.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>兵团卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=bttv" target="_blank" >PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/bttv.m3u8" target="_blank" >移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>延边卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=ybtv" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/ybtv.m3u8" target="_blank">移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>三沙卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=sstv" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/sstv.m3u8" target="_blank">移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>海南卫视</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=lytv" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/lytv.m3u8" target="_blank">移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <div class="2u -2u">
+                      <p>CETV-1</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cetv1" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cetv1.m3u8" target="_blank">移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>CETV-3</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cetv3" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cetv3.m3u8" target="_blank">移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>CETV-4</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=cetv4" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/cetv4.m3u8" target="_blank">移动端</a>
+                    </div>
+                    <div class="2u">
+                      <p>山东教育</p>
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/player.html?channel=sdetv" target="_blank">PC端</a>&nbsp;
+                      <a class="icon1" href="http://ivi.bupt.edu.cn/hls/sdetv.m3u8" target="_blank">移动端</a>
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top:50px">
+                    <p class="8u -2u">
+                                你有多久没看电视了？
+                    </p>
+                    <p class="8u -2u">
+                    </p>
+                  </div>
+                </div>
+              </body>
+</html >

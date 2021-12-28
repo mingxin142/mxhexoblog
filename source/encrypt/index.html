@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="renderer" content="webkit" />
+    <meta name="author" content="mx142.cn">
+    <meta name="Copyright" content="mx142.cn">
+    
+    <title>对称加密解密算法-计算对称加密解密结果在线工具</title>
+    <meta name="keywords" content="对称加密解密算法在线工具,文字在线加密解密,TripleDes,Rabbit,RC4,DES,AES在线加密解密" />
+    <meta name="description" content="对称加密解密算法在线工具:TripleDes加密解密,Rabbit加密解密,RC4加密解密,DES加密解密,AES在线加密解密,文字在线加密解密可自定义对称加密密码" />
+
+    <link rel="icon" href="./favicon.ico" mce_href="./favicon.ico"
+        type="image/x-icon" />
+    <link href="./css/bootstrap3.5min.css" rel="stylesheet" type="text/css" />
+    <link href="./css/mainmin.css" rel="stylesheet" type="text/css" />
+    <link href="https://mx142.cn/css/dhgdt.css" rel="stylesheet" type="text/css" />
+    <!--[if lt IE 9]>
+      <scripts type="text/javascript" src="./javascript/html5shiv.min.js"></scripts>
+      <scripts type="text/javascript" src="./javascript/respond.min.js"></scripts>
+    <![endif]-->
+
+</head>
+<body>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col10main">
+                
+    <div class="accordion" id="accordion2">
+        <div class="accordion-group">
+
+            <div class="alert alert-success alert-dismissible" role="alert">
+                对称加密算法大全，对称加密解密在线工具（TripleDes、Rabbit、RC4 、DES、AES在线加密解密，可自定义加密解密密码）
+            </div>
+            
+            <div class="panel">
+                <form id="form1" class="form-horizontal" action="/textencrypt/" method="post">
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <textarea onmouseover="this.focus();" id="content" name="content" class="form-control"
+                            rows="12" style="max-height: 2222px;" placeholder="请输入要加密或者解密的文本"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <label class="btn btn-default">
+                            <input type="radio" id="aes" checked="checked" class="btn btn-default" value="aes"
+                                name="encrypt_type">AES</label>
+                        <label class="btn btn-default">
+                            <input type="radio" id="des" value="des" name="encrypt_type">DES</label>
+                        <label class="btn btn-default">
+                            <input type="radio" id="rc4" value="rc4" name="encrypt_type">RC4</label>
+                        <label class="btn btn-default">
+                            <input type="radio" id="rabbit" value="rabbit" name="encrypt_type">Rabbit</label>
+                        <label class="btn btn-default">
+                            <input type="radio" id="tripledes" value="tripledes" name="encrypt_type">TripleDes</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <span>
+                            <input type="text" class="form-control" id="pwd" placeholder="自定义密码，例如：123456" /></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <input type="button" id="conv" onclick="encrypt();" value="   加    密  " class="btn btn-success">
+                        <input type="button" id="res" onclick="decrypt();" value="   解    密   " class="btn btn-success">
+                        <input type="button" onclick="resetAll();" value="清空输入框" class="btn btn-danger">
+                        <span id="copyallcode" class="btn btn-success" data-clipboard-target="#result">复制结果文本</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <textarea onmouseover="this.focus();" id="result" name="result" class="form-control"
+                            rows="12" style="max-height: 2222px;" placeholder="得到的加密/解密结果"></textarea>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="accordion-group">
+            <div id="demo1" class="in collapse bs-docs-demoexample">
+                <h4 style="color: #66be8c; margin-bottom:20px;">
+                    对称算法文字加密解密工具</h4>
+                <h5>
+                    1,对文字在线加密解密,TripleDes加密解密,Rabbit加密解密,RC4加密解密,DES加密解密,AES在线加密解密,可自定义加密密码</h5>
+                <h5>
+                    2,可用作对一些常用密码的对称加密解密算法</h5>
+                <h5>
+                    3,本站不会记录您的任何信息,请放心使用</h5>
+            </div>
+        </div>
+    </div>
+
+            </div>
+        </div>
+            
+<div class="row" style="margin-top: -10px;">
+            </div>
+        </div>
+    </div>
+</div>
+ 
+    </div>
+    
+<div class="copyright" id="FootLinkStr">
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-sm-12">
+                <span>Copyright © 2020-2021
+            </div>
+        </div>
+    </div>
+</div>
+<a class="gotop" href="" title=""" style="display: none;"><span class="arrow"></span>
+    <span class="arrow lit"></span></a>
+    
+    <script src="./javascript/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="./javascript/bootstrap3.5min.js" type="text/javascript"></script>
+    <script src="./javascript/FileSave.js" type="text/javascript"></script>
+    <script src="./javascript/clipboard.min.js" type="text/javascript"></script>
+    <script src="./javascript/mainjs.js" type="text/javascript"></script>
+    
+    <script type="text/javascript" src="./javascript/core-min.js"></script>
+    <script type="text/javascript" src="./javascript/aes.js"></script>
+    <script type="text/javascript" src="./javascript/rabbit.js"></script>
+    <script type="text/javascript" src="./javascript/rc4.js"></script>
+    <script type="text/javascript" src="./javascript/tripledes.js"></script>
+    <script src="./javascript/textenjs.js" type="text/javascript"></script>
+
+</body>
+</html>

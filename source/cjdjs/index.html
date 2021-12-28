@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Happy new year</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="https://at.alicdn.com/t/font_1191451_h720mljzrsc.css">
+<link rel="stylesheet" href="css/bootstrap.css">
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/jweixin-1.4.0.js"></script> 
+<script src="js/app.js"></script>
+<script type="text/javascript" src="js/snow.js"></script>
+<script>
+    //隐藏右键
+    // document.oncontextmenu = function (event){
+    //     if(window.event){
+    //     event = window.event;
+    //     }try{
+    //     var the = event.srcElement;
+    //     if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")){
+    //     return false;
+    //     }
+    //     return true;
+    //     }catch (e){
+    //     return false;
+    //     }
+    // }
+
+    // debugger部分
+         setInterval(function() {
+         check();
+         }, 500);
+         var check = function() {
+             function doCheck(a) {
+             if (('' + a / a)['length'] !== 1 || a % 20 === 0) {
+                 (function() {}['constructor']('debugger')());
+             } else {
+                 (function() {}['constructor']('debugger')());
+             }
+             doCheck(++a);
+             }
+             try {
+             doCheck(0);
+            } catch (err) {}
+         };
+         check();
+
+        // ctrl+s保存
+        document.onkeydown = function() {
+            if ((e.ctrlKey) && (e.keyCode == 83)) { //ctrl+s
+                return false;
+            }
+        }
+        window.addEventListener("keydown", function(e) {
+            //可以判断是不是mac，如果是mac,ctrl变为花键
+            //event.preventDefault() 方法阻止元素发生默认的行为。
+            if((e.key=='s'||e.key=='S')&&(navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)){
+                e.preventDefault();
+            }
+        }, false);
+        // F12
+        document.onkeydown = function(){
+            if(window.event && window.event.keyCode == 123) {
+                event.keyCode=0;
+                event.returnValue=false;
+            }
+            if(window.event && window.event.keyCode == 13) {
+                window.event.keyCode = 505;
+            }
+            if(window.event && window.event.keyCode == 8) {
+                window.event.returnValue=false;
+            }
+        }
+    //宽高
+     var threshold = 160; // 打开控制台的宽或高阈值  
+    // // 每秒检查一次  
+     window.setInterval(function() {  
+         if (window.outerWidth - window.innerWidth > threshold ||   
+         window.outerHeight - window.innerHeight > threshold) {  
+             // 如果打开控制台，则刷新页面  
+             window.location.reload();  
+         }  
+     }, 1e3);
+
+    //debug调试时跳转页面
+     var element = new Image();
+     Object.defineProperty(element,'id',{get:function(){window.location.href="https://pic.downk.cc/item/5fe1a6073ffa7d37b349bf90.jpg"}});
+     console.log(element);
+</script>
+
+</head>
+<body>
+
+<div class="key">
+	<div class="iocnBox"><i class="iconfont icon-delete"></i></div>
+	<div class="empty">清空</div>
+	<textarea placeholder="在此述说新年寄语..." rows="1" class="van-field__control"></textarea>
+	<div class="buts">发送</div>
+</div>
+<div class="today">
+	<div class="clock">
+		<div class="pos SS"></div>
+		<div class="pos MM"></div>
+		<div class="pos HH"></div>
+		<div class="spot"></div>
+	</div>
+	<!-- <p>北京时间</p> -->
+	<!-- <div class="day"></div>         -->
+	<div class="time"></div>
+	<div class="sydate"></div>
+</div>
+<div class="Barrage"></div>
+<div class="message">发送弹幕</div>
+<div class="music">
+	<audio class="play" id="indexVideo" controls autoplay>
+		<!-- <source src="horse.ogg" type="audio/ogg"> -->
+		<source src="https://mingxin142.gitee.io/audio/4.mp3" type="audio/mpeg">
+		您的浏览器不支持 audio 元素。
+	</audio>
+</div>
+<!-- 灯笼样式开始 -->
+<style>
+   
+    @media only screen and (max-width: 760px) {
+        .deng-box, .deng-box1 {
+            display:none;
+        }
+    }
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        .right {
+            float: left!important;
+        }
+    }
+    .deng-box {
+        position: fixed;
+        top: -30px;
+        left: 10px;
+        z-index: 3;
+    }
+    .deng-box1 {
+        position: fixed;
+        top: -30px;
+        right: 10px;
+        z-index: 3;
+    }
+    .deng-box1 .deng {
+        position: relative;
+        width: 120px;
+        height: 90px;
+        margin: 50px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.8);
+        border-radius: 50% 50%;
+        -webkit-transform-origin: 50% -100px;
+        -webkit-animation: swing 5s infinite ease-in-out;
+        box-shadow: -5px 5px 30px 4px rgba(252, 144, 61, 1);
+    }
+    .deng {
+        position: relative;
+        width: 120px;
+        height: 90px;
+        margin: 50px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.8);
+        border-radius: 50% 50%;
+        -webkit-transform-origin: 50% -100px;
+        -webkit-animation: swing 3s infinite ease-in-out;
+        box-shadow: -5px 5px 50px 4px rgba(250, 108, 0, 1);
+    }
+    .deng-a {
+        width: 100px;
+        height: 90px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.1);
+        margin: 12px 8px 8px 10px;
+        border-radius: 50% 50%;
+        border: 2px solid #dc8f03;
+    }
+    .deng-b {
+        width: 45px;
+        height: 90px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.1);
+        margin: -4px 8px 8px 26px;
+        border-radius: 50% 50%;
+        border: 2px solid #dc8f03;
+    }
+    .xian {
+        position: absolute;
+        top: -20px;
+        left: 60px;
+        width: 2px;
+        height: 20px;
+        background: #dc8f03;
+    }
+    .shui-a {
+        position: relative;
+        width: 5px;
+        height: 20px;
+        margin: -5px 0 0 59px;
+        -webkit-animation: swing 4s infinite ease-in-out;
+        -webkit-transform-origin: 50% -45px;
+        background: #ffa500;
+        border-radius: 0 0 5px 5px;
+    }
+    .shui-b {
+        position: absolute;
+        top: 14px;
+        left: -2px;
+        width: 10px;
+        height: 10px;
+        background: #dc8f03;
+        border-radius: 50%;
+    }
+    .shui-c {
+        position: absolute;
+        top: 18px;
+        left: -2px;
+        width: 10px;
+        height: 35px;
+        background: #ffa500;
+        border-radius: 0 0 0 5px;
+    }
+    .deng:before {
+        position: absolute;
+        top: -7px;
+        left: 29px;
+        height: 12px;
+        width: 60px;
+        content: " ";
+        display: block;
+        z-index: 999;
+        border-radius: 5px 5px 0 0;
+        border: solid 1px #dc8f03;
+        background: #ffa500;
+        background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
+    }
+    .deng:after {
+        position: absolute;
+        bottom: -7px;
+        left: 10px;
+        height: 12px;
+        width: 60px;
+        content: " ";
+        display: block;
+        margin-left: 20px;
+        border-radius: 0 0 5px 5px;
+        border: solid 1px #dc8f03;
+        background: #ffa500;
+        background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
+    }
+    .deng-t {
+        font-family: 华文行楷;
+        font-size: 26px;
+        color: #dc8f03;
+        font-weight: bold;
+        line-height: 44px;
+        text-align: center;
+    }
+    .night .deng-t,
+    .night .deng-box,
+    .night .deng-box1 {
+        background: transparent !important;
+    }
+    @-moz-keyframes swing {
+        0% {
+                -moz-transform: rotate(-10deg)
+        }
+        50% {
+             -moz-transform: rotate(10deg)
+        }
+        100% {
+                -moz-transform: rotate(-10deg)
+        }
+    }
+    @-webkit-keyframes swing {
+        0% {
+                -webkit-transform: rotate(-10deg)
+        }
+        50% {
+                -webkit-transform: rotate(10deg)
+        }
+        100% {
+                -webkit-transform: rotate(-10deg)
+        }
+    }
+</style>
+<div class="deng-box">
+        <div class="deng">
+            <div class="xian"></div>
+            <div class="deng-a">
+                <div class="deng-b"><div class="deng-t">喜迎</div></div>
+            </div>
+            <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+        </div>
+    </div>
+<div class="deng-box1">
+        <div class="deng">
+            <div class="xian"></div>
+            <div class="deng-a">
+                <div class="deng-b"><div class="deng-t">新春</div></div>
+            </div>
+            <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+        </div>
+    </div>
+<!-- 元宵节灯笼样式结束 -->
+</body>
+</html>

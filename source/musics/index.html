@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html><html lang=en>
+<head>
+    <meta charset=utf-8>
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <link rel=icon href=./favicon.ico>
+    <link rel=stylesheet href=./css/font.css>
+    <title>Mx音乐播放器</title>
+    <link href=./css/app.f0531267.css rel=preload as= style>
+    <link href=./css/chunk-vendors.d39e9fad.css rel=preload as= style>
+    <link href=./js/app.fd5aaba9.js rel=preload as=script>
+    <link href=./js/chunk-vendors.840c588b.js rel=preload as=script>
+    <link href=./css/chunk-vendors.d39e9fad.css rel=stylesheet>
+    <link href=./css/app.f0531267.css rel=stylesheet>
+</head>
+<body>
+    <noscript><strong>We're sorry but hmplayer doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div>
+    <script src=./js/chunk-vendors.840c588b.js></script>
+    <script src=./js/app.fd5aaba9.js></script>
+</body>
+<script>
+    // ctrl+s保存
+    document.onkeydown = function () {
+        if ((e.ctrlKey) && (e.keyCode == 83)) { //ctrl+s
+            return false;
+        }
+    }
+    window.addEventListener("keydown", function (e) {
+        //可以判断是不是mac，如果是mac,ctrl变为花键
+        //event.preventDefault() 方法阻止元素发生默认的行为。
+        if ((e.key == 's' || e.key == 'S') && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+            e.preventDefault();
+        }
+    }, false);
+    //debug调试时跳转页面
+    var element = new Image();
+    Object.defineProperty(element, 'id', { get: function () { window.location.href = "https://pic.downk.cc/item/5fe1a6073ffa7d37b349bf90.jpg" } });
+    console.log(element);
+    // F12
+    document.onkeydown = function () {
+        if (window.event && window.event.keyCode == 123) {
+            event.keyCode = 0;
+            event.returnValue = false;
+        }
+        if (window.event && window.event.keyCode == 13) {
+            window.event.keyCode = 505;
+        }
+        if (window.event && window.event.keyCode == 8) {
+            window.event.returnValue = false;
+        }
+    }
+</script>
+<script>
+        //隐藏右键
+         document.oncontextmenu = function (event){
+             if(window.event){
+             event = window.event;
+             }try{
+             var the = event.srcElement;
+             if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")){
+             return false;
+             }
+             return true;
+             }catch (e){
+             return false;
+             }
+         }
+</script>
+</html >
