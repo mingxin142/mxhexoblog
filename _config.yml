@@ -107,13 +107,13 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: hexo-theme-matery
+theme: hexo-theme-mxmatery
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
    - type: git 
-     repo: root@106.15.62.29:/home/git/blog.git
+     repo: #上传地址
      branch: master
 search:
   path: search.xml
